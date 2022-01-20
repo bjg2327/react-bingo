@@ -60,11 +60,11 @@ function Board(props: { size: number }) {
       }
       return a;
     };
-    const shuffledEmoji = shuffle(getNumbers(size * size));
+    const shuffledNumber = shuffle(getNumbers(size * size));
     for (let i = 0; i < size; i++) {
       for (let j = 0; j < size; j++) {
         bMatrix[i].splice(j, 1, {
-          content: shuffledEmoji[i * size + j],
+          content: shuffledNumber[i * size + j],
           check: false,
         });
       }
@@ -85,7 +85,6 @@ function Board(props: { size: number }) {
   };
 
   const checkBingo = () => {
-    console.log("checkBingo");
     const { size } = props;
     let totalBingo = 0;
     // row
@@ -117,10 +116,7 @@ function Board(props: { size: number }) {
     }
     if (diagnalBingoOne) totalBingo++;
     if (diagnalBingoTwo) totalBingo++;
-    console.log("totalBingo");
-    console.log(totalBingo);
     setBingoCount(totalBingo);
-    console.log(bingoCount);
   };
 
   return (
