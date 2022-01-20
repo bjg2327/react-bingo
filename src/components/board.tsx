@@ -13,14 +13,14 @@ interface IBingoTitleProps {
 const Container = styled("div")<IContainerProps>`
   border: 5px solid black;
   display: grid;
-  grid-template-columns: repeat(${(props) => props.size}, 5rem);
-  grid-template-rows: repeat(${(props) => props.size}, 5rem);
+  grid-template-columns: repeat(${(props) => props.size}, 4rem);
+  grid-template-rows: repeat(${(props) => props.size}, 4rem);
   font-size: 2.5rem;
 `;
 
 const BingoTitle = styled("div")<IBingoTitleProps>`
   margin: 2rem 0;
-  font-size: ${(props) => props.totalBingo / 2}rem;
+  font-size: 2rem;
   font-weight: 900;
   transition: 0.5s ease-in-out;
 `;
@@ -47,12 +47,11 @@ function Board(props: { size: number }) {
   const [selectCount, setSelectCount] = useState(0);
   const { size } = props;
 
-  let bMatrix: ISquare[][] = [];
-  for (let i = 0; i < size; i++) {
-    bMatrix[i] = new Array(size).fill({ content: "", check: false });
-  }
-
   useEffect(() => {
+    let bMatrix: ISquare[][] = [];
+    for (let i = 0; i < size; i++) {
+      bMatrix[i] = new Array(size).fill({ content: "", check: false });
+    }
     const shuffle = (a: any) => {
       for (let i = a.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -70,7 +69,7 @@ function Board(props: { size: number }) {
       }
     }
     setMatrix(bMatrix);
-  }, []);
+  }, [size]);
 
   const handleOnClickSquare = (row: number, col: number) => {
     if (matrix !== undefined) {

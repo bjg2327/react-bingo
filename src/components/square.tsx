@@ -7,7 +7,7 @@ interface IBoxProps {
 
 const Box = styled("div")<IBoxProps>`
   background-color: ${(props) => (props.check ? "#f56a6a" : "white")};
-  box-shadow: ${(props) => (props.check ? "inset 0px 0px 10px #000" : null)};
+  box-shadow: ${(props) => (props.check ? "inset 0px 0px 10px #aa4c4c" : null)};
   border: 2px solid black;
   display: flex;
   align-items: center;
@@ -15,7 +15,7 @@ const Box = styled("div")<IBoxProps>`
   transition: 0.2s ease-in-out;
   cursor: pointer;
   &:hover {
-    background-color: ${(props) => (props.check ? "#aaa" : "#ccc")};
+    background-color: ${(props) => (props.check ? "#f56a6a" : "#ccc")};
     box-shadow: ${(props) =>
       props.check ? "inset 0px 0px 10px #000" : "inset 0px 0px 10px #555"};
   }
